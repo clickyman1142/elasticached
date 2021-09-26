@@ -38,12 +38,10 @@ export class AppService {
                     resolve(JSON.parse(data));
                 });
             });
-            if (dataFromCached) {
-                return {
-                    message: "Return from cached",
-                    data: dataFromCached,
-                };
-            }
+            return {
+                message: "Return from cached",
+                data: dataFromCached,
+            };
         } catch (e) {
             const data = await this.studentRepo.find();
             this.cache.setex(CACHE_KEY.STUDENTS, CACHE_EXPIRED_TIME_DEFAULT, JSON.stringify(data));
@@ -64,12 +62,10 @@ export class AppService {
                     resolve(JSON.parse(data));
                 });
             });
-            if (dataFromCached) {
-                return {
-                    message: "Return from cached",
-                    data: dataFromCached,
-                };
-            }
+            return {
+                message: "Return from cached",
+                data: dataFromCached,
+            };
         } catch (e) {
             const data = await this.studentRepo.findOne(id);
             this.cache.setex(data.id, CACHE_EXPIRED_TIME_DEFAULT, JSON.stringify(data));

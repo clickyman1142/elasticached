@@ -12,19 +12,19 @@ export class AppController {
   }
 
   @Get("/students")
-  async getStudents(): Promise<IResponseDto<Array<StudentEntity>>> {
+  public async getStudents(): Promise<IResponseDto<Array<StudentEntity>>> {
     return this.appService.getStudents();
   }
 
   @Get("/students/:id")
-  async getStudent(
+  public async getStudent(
       @Param("id") id: string,
   ): Promise<IResponseDto<StudentEntity>> {
     return this.appService.getStudent(id);
   }
 
   @Post("/students")
-  async addStudent(
+  public async addStudent(
       @Body() body: {name: string, score: number}
   ): Promise<IResponseDto<StudentEntity>> {
     return this.appService.addStudent(body.name, body.score);
