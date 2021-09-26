@@ -87,6 +87,7 @@ export class AppService {
         const generatedId = rs.raw[0].id;
         const insertedData = {name, score, id: generatedId} as StudentEntity;
         this.cache.setex(generatedId, CACHE_EXPIRED_TIME_DEFAULT, JSON.stringify(insertedData));
+        this.cache.setex(CACHE_KEY.STUDENTS, CACHE_EXPIRED_TIME_DEFAULT, JSON.stringify([]));
         return {
             message: "Successfully",
             data: insertedData,
