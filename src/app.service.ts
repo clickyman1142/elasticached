@@ -38,6 +38,9 @@ export class AppService {
                     resolve(JSON.parse(data));
                 });
             });
+            if (!dataFromCached) {
+                throw new Error("Can't empty");
+            }
             return {
                 message: "Return from cached",
                 data: dataFromCached,
@@ -62,6 +65,9 @@ export class AppService {
                     resolve(JSON.parse(data));
                 });
             });
+            if (!dataFromCached) {
+                throw new Error("Can't empty");
+            }
             return {
                 message: "Return from cached",
                 data: dataFromCached,
