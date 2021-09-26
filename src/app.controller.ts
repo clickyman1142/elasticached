@@ -11,19 +11,19 @@ export class AppController {
     return "Hello World";
   }
 
-  @Get("students")
+  @Get("/students")
   async getStudents(): Promise<IResponseDto<Array<StudentEntity>>> {
     return this.appService.getStudents();
   }
 
-  @Get("students/:id")
+  @Get("/students/:id")
   async getStudent(
       @Param("id") id: string,
   ): Promise<IResponseDto<StudentEntity>> {
     return this.appService.getStudent(id);
   }
 
-  @Post("students")
+  @Post("/students")
   async addStudent(
       @Body() body: {name: string, score: number}
   ): Promise<IResponseDto<StudentEntity>> {
