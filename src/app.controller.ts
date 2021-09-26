@@ -6,6 +6,11 @@ import {StudentEntity} from "./entities/student.entity";
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @Get("/")
+  public getGreeting(): string {
+    return "Hello World";
+  }
+
   @Get("students")
   async getStudents(): Promise<IResponseDto<Array<StudentEntity>>> {
     return this.appService.getStudents();
