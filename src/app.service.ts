@@ -38,7 +38,7 @@ export class AppService {
                     resolve(JSON.parse(data));
                 });
             });
-            if (!dataFromCached) {
+            if (!dataFromCached || dataFromCached.length === 0) {
                 throw new Error("Can't empty");
             }
             return {
